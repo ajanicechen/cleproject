@@ -1,0 +1,78 @@
+body {
+    color: black;
+    background-image: url("../images/background1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.item {
+    background-color: #FFF9F8;
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title{
+    color: orange;
+    font-weight: bold;
+    font-size: xxx-large;
+    text-shadow: -3px -3px orangered;
+}
+
+.subtitle {
+    color: lightcoral;
+    font-weight: bold;
+    font-size: x-large;
+    text-shadow: -2px -2px rebeccapurple;
+}
+
+.rules {
+    background-color: #FFECEB;
+    padding: 20px;
+    color: lightcoral;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.leftTextAlign {
+    text-align: left;
+}
+
+.centerTextAlign {
+    text-align: center;
+}
+
+.links {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+a:link, a:visited {
+    background-color: #b3b4f1;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: lightcoral;
+}
+
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 300px;
+    height: 150px;
+    resize: none;
+}
