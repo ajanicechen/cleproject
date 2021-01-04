@@ -18,9 +18,10 @@ if(isset($_SESSION['username'])){
         <form action="" method="post">
             <div class="subtitle">
                 <div class="centerTextAlign">
-                    Log In
+                    Admin Page
                 </div>
             </div>
+            <br>
             <?php
             if(isset($_POST['submit'])) {
                 if(!empty($_POST['username']) || !empty($_POST['password'])) {
@@ -53,19 +54,19 @@ if(isset($_SESSION['username'])){
                     mysqli_close($db);
                 }
                 else{
-                    echo 'Please enter Username and Password<br>';
+                    echo 'Please enter Username and Password';
                 }
             }
             ?>
-            <br>
-            <input type="text" name="username" placeholder="Username"/>
-            <br>
-            <br>
-            <input type="password" name="password" placeholder="Password"/>
-            <br>
-            <br>
-            <div class="links">
-            <input type="submit" name="submit" />
+            <div class="centerTextAlign">
+                <div class="rules">
+                    <input type="text" name="username" placeholder="Username"/>
+                    <br>
+                    <input type="password" name="password" placeholder="Password"/>
+                    <br>
+                </div>
+                <br>
+                <input type="submit" name="submit" value="Log in"/>
             </div>
         </form>
     </div>

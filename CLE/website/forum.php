@@ -21,50 +21,39 @@
             </div>
             <br>
             <div class="rules">
-                <table>
-                    <tr>
-                    <td>Contact</td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td><input type="text" name="Name" required></td>
-                    </tr>
-                    <tr>
-                        <td>Twitter</td>
-                        <td><input type="text" name="Twitter" required></td>
-                    </tr>
-                    <tr>
-                        <td> E-mail</td>
-                        <td><input type="email" name="E-mail" required></td>
-                    </tr>
-                </table>
-            <br>
-            In what style would you like to commission?
-            <br>
+                <div class="centerTextAlign">
+                    Please fill in this form!
+                    <br>
+                    <br>
+                    <input class="center-block" type="text" name="Name" placeholder="Name" required><br>
+                    <input class="center-block" type="text" name="Twitter" placeholder="Twitter" required><br>
+                    <input class="center-block" type="email" name="E-mail" placeholder="Email" required>
+                </div>
+                <br>
+                In what style would you like to commission?
+                <br>
 
-            <input type="radio" name="Style" value="Cartoon" required>
-            Cartoon €15,-
-            <br>
+                <input type="radio" name="Style" value="Cartoon" required>
+                Cartoon €15,-
+                <br>
 
-            <input type="radio" name="Style" value="Full Body" required>
-            Full Body €25,-
-            <br>
+                <input type="radio" name="Style" value="Full Body" required>
+                Full Body €25,-
+                <br>
 
-            <input type="radio" name="Style" value="90s Anime" required>
-            90's Anime €30,-
-            <br>
-            <br>
-
-            Description
-            <br>
-            <textarea name="Description" rows="4" cols="40" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)"></textarea>
+                <input type="radio" name="Style" value="90s Anime" required>
+                90's Anime €30,-
+                <br>
+                <br>
+                <div class="centerTextAlign">
+                    <textarea name="Description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)"></textarea>
+                </div>
             </div>
             <br>
             <br>
-
-            <input type="submit" value="Submit Request!">
-
-
+            <div class="centerTextAlign">
+                <input type="submit" value="Submit Request!">
+            </div>
         </form>
     </div>
 </body>

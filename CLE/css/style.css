@@ -41,6 +41,28 @@ body {
     border-radius: 10px;
 }
 
+input[type=text], input[type=password], input[type=email], textarea{
+    width: 95%;
+    padding: 10px 20px;
+    margin: 4px 0;
+    display: inline;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: #b3b4f1;
+    border: 0px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
 .leftTextAlign {
     text-align: left;
 }
