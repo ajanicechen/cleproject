@@ -1,4 +1,5 @@
 <?php
+//echo password_hash("Passuwu123", PASSWORD_DEFAULT);
 ?>
 
 <html>
