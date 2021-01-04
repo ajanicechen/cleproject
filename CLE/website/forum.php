@@ -9,7 +9,6 @@
     <meta charset="UTF-8">
     <title>Request Forum</title>
     <link rel="stylesheet" href="../css/style.css">
-    <br>
 </head>
 
 <body>
