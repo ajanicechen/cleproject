@@ -45,7 +45,7 @@
             </table>
             <br>
             <div class="centerTextAlign">
-                <a href="homepage.php">Home</a>
+                <a href="index.php">Home</a>
             </div>
         </div>
     </body>
