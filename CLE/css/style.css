@@ -98,3 +98,30 @@ textarea {
     height: 150px;
     resize: none;
 }
+
+.adminTable{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.adminTable tr:nth-child(even){background-color: #cdcdcd;}
+.adminTable tr:nth-child(odd){background-color: #ffffff;}
+
+.description{
+    padding-right: 80px;
+}
+
+.adminTable tr th, .adminTable tr td{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+
+
+
