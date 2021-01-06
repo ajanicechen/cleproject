@@ -24,23 +24,27 @@
             <table class="rules">
                 <tr>
                     <td>Name:</td>
-                    <td><?= $_GET['Name'];?></td>
+                    <td><span class="errors"><?= isset($_GET['Name']) ? $_GET['Name'] : '' ?></span></td>
                 </tr>
                 <tr>
                     <td>Twitter:</td>
-                    <td><?= $_GET['Twitter'];?></td>
+                    <td><span class="errors"><?= isset($_GET['Twitter']) ? $_GET['Twitter'] : '' ?></span></td>
+
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><?= $_GET['E-mail'];?></td>
+                    <td><span class="errors"><?= isset($_GET['E-mail']) ? $_GET['E-mail'] : '' ?></span></td>
+
                 </tr>
                 <tr>
                     <td>Style:</td>
-                    <td><?= $_GET['Style'];?></td>
+                    <td><span class="errors"><?= isset($_GET['Style']) ? $_GET['Style'] : '' ?></span></td>
+
                 </tr>
                 <tr>
                     <td>Description:</td>
-                    <td><?= $_GET['Description'];?></td>
+                    <td><span class="errors"><?= isset($_GET['Description']) ? $_GET['Description'] : '' ?></span></td>
+
                 </tr>
             </table>
             <br>

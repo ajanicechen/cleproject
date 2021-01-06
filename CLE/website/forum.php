@@ -1,7 +1,7 @@
 <?php
 //Check if Post isset, else do nothing
 if (isset($_POST['submit'])) {
-    //Require database in this file & image helpers
+    //Require database
     /** @var mysqli $db */
     require_once "../include/database.php";
 
