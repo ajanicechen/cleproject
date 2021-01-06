@@ -10,7 +10,7 @@ if(isset($_SESSION['username'])){
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Hakizen's Commissions!</title>
+        <title>Login</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
 

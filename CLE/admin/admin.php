@@ -25,7 +25,7 @@ mysqli_close($db);
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Commission Styles!</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
