@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                 </tr>
                 <tr>
                     <td>Description:</td>
-                    <td><?= $commissions['description']?></td>
+                    <td class="description"><?= $commissions['description']?></td>
                 </tr>
             </table>
 

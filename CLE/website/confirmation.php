@@ -43,8 +43,7 @@
                 </tr>
                 <tr>
                     <td>Description:</td>
-                    <td><span class="errors"><?= isset($_GET['Description']) ? $_GET['Description'] : '' ?></span></td>
-
+                    <td><span class="errors"><?= isset($_GET['Description']) ? str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$_GET['Description']) : '' ?></span></td>
                 </tr>
             </table>
             <br>

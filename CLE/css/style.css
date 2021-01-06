@@ -19,6 +19,11 @@ body {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
+.pinkText{
+    color: lightcoral;
+    font-weight: bold;
+}
+
 .title{
     color: orange;
     font-weight: bold;
@@ -34,6 +39,8 @@ body {
 }
 
 .rules {
+    margin: auto;
+    max-width: 600px;
     background-color: #FFECEB;
     padding: 20px;
     color: lightcoral;
@@ -112,6 +119,7 @@ textarea {
 
 .description{
     padding-right: 80px;
+    white-space: pre-wrap;
 }
 
 .adminTable tr th, .adminTable tr td{
