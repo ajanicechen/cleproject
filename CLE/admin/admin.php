@@ -1,4 +1,5 @@
 <?php
+/** @var mysqli $db */
 session_start();
 //checks if logged in
 if(!isset($_SESSION['username'])){
@@ -37,20 +38,23 @@ mysqli_close($db);
                 <th>email</th>
                 <th>style</th>
                 <th class="description">description</th>
+                <th colspan="3"></th>
             </tr>
             <?php
-                foreach($commissions as $value){
-                    echo
-                    "<tr> 
-                        <td>".$value["id"]."</td>
-                        <td>".$value["name"]."</td>
-                        <td>".$value["twitter"]."</td>
-                        <td>".$value["email"]."</td>
-                        <td>".$value["style"]."</td>
-                        <td>".$value["description"]."</td>
-                    </tr>";
-                }
-            ?>
+                //reads array and puts in table
+                foreach($commissions as $value){ ?>
+                    <tr>
+                        <td><?= $value["id"]?></td>
+                        <td><?= $value["name"]?></td>
+                        <td><?= $value["twitter"]?></td>
+                        <td><?= $value["email"]?></td>
+                        <td><?= $value["style"]?></td>
+                        <td><?= $value["description"]?></td>
+                        <td><a href="details.php?id=<?= $value['id'] ?>">Details</a></td>
+                        <td><a href="edit.php?id=<?= $value['id'] ?>">Edit</a></td>
+                        <td><a href="delete.php?id=<?= $value['id'] ?>">Delete</a></td>
+                    </tr>
+                <?php } ?>
         </table>
     </div>
 </body>

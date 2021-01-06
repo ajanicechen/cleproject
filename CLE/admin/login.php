@@ -1,4 +1,5 @@
 <?php
+/** @var mysqli $db */
 require_once '../include/database.php';
 session_start();
 if(isset($_SESSION['username'])){
