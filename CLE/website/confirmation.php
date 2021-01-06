@@ -13,34 +13,34 @@
     <body>
         <div class="item">
             <?php
-            if (empty($_POST)){
+            if (empty($_GET)){
                 header("Location: forum.php");
             }
             ?>
-            <div class="centerTextAlign">
-                Thank you for your request!
+            <div class="centerTextAlign subtitle">
+                Thank you for your <br> request!
             </div>
             <br>
-            <table>
+            <table class="rules">
                 <tr>
                     <td>Name:</td>
-                    <td><?= $_POST['Name'];?></td>
+                    <td><?= $_GET['Name'];?></td>
                 </tr>
                 <tr>
                     <td>Twitter:</td>
-                    <td><?= $_POST['Twitter'];?></td>
+                    <td><?= $_GET['Twitter'];?></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><?= $_POST['E-mail'];?></td>
+                    <td><?= $_GET['E-mail'];?></td>
                 </tr>
                 <tr>
                     <td>Style:</td>
-                    <td><?= $_POST['Style'];?></td>
+                    <td><?= $_GET['Style'];?></td>
                 </tr>
                 <tr>
                     <td>Description:</td>
-                    <td><?= $_POST['Description'];?></td>
+                    <td><?= $_GET['Description'];?></td>
                 </tr>
             </table>
             <br>
