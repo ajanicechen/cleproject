@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Delete - <?= $commissions['id'] ?></title>
+    <title>Delete commission <?= $commissions['id'] ?></title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
