@@ -34,9 +34,6 @@ if (isset($_POST['submit'])) {
             $errors[] = 'Something went wrong, please try again';
         }
     }
-    else{
-        echo 'ERROR';
-    }
 }
 ?>
 
