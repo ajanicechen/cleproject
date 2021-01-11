@@ -1,5 +1,5 @@
 <?php
-//Require data
+//Requires data
 /** @var mysqli $db */
 require_once "../include/database.php";
 
@@ -86,8 +86,9 @@ if (isset($_POST['submit'])) {
 
             <br>
             <br>
+            <a href="admin.php">No, go back</a>
             <input type="hidden" name="id" value="<?= $commissions['id'] ?>"/>
-            <input type="submit" name="submit" value="Delete"/>
+            <input type="submit" name="submit" value="Yes, delete"/>
         </form>
     </div>
 </body>
