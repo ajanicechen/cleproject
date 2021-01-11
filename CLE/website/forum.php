@@ -49,7 +49,9 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class = "item">
-        <?php if ($success){ ?>
+        <?php
+        //if commission is made, show confirmation
+        if ($success){ ?>
         <div class="centerTextAlign subtitle">
             Thank you for your <br> request!
         </div>
@@ -83,8 +85,10 @@ if (isset($_POST['submit'])) {
         <div class="centerTextAlign">
             <a href="index.php">Home</a>
         </div>
-        <?php } else { ?>
 
+        <?php
+        //else show request forum
+        } else { ?>
         <form action="" method="post">
             <div class="subtitle">
                 <div class = "centerTextAlign">
