@@ -49,13 +49,19 @@ if(isset($_SESSION['username'])){
                             header("Location: admin.php");
                         }
                         else{
-                            echo 'Username or Password invalid';
+                            //echo 'Username or Password invalid';
+                            ?>
+                            <p class="pinkText centerTextAlign">Username or Password invalid</p>
+            <?php
                         }
                     }
                     mysqli_close($db);
                 }
                 else{
-                    echo 'Please enter Username and Password';
+                    //echo 'Please enter Username and Password';
+                    ?>
+                    <p class="pinkText centerTextAlign"> Please enter Username / Password</p>
+                <?php
                 }
             }
             ?>
