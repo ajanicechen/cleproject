@@ -38,7 +38,8 @@ mysqli_close($db);
                 <th>email</th>
                 <th>style</th>
                 <th class="description">description</th>
-                <th colspan="3"></th>
+                <th colspan="2"></th>
+                <th><a href="logout.php">Log out</th>
             </tr>
             <?php
                 //reads array and puts in table
