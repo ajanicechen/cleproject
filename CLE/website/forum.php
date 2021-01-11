@@ -1,4 +1,5 @@
 <?php
+$success = false;
 //Check if Post isset, else do nothing
 if (isset($_POST['submit'])) {
     //Require database
@@ -15,7 +16,7 @@ if (isset($_POST['submit'])) {
     require_once "../include/form-validation.php";
 
     if (empty($errors)) {
-        echo 'no errors';
+        //echo 'no errors';
         //Saves commission into the database
         $query = "INSERT INTO commissions (name, twitter, email, style, description)
                   VALUES ('$name', '$twitter', '$email', '$style', '$description')";
@@ -26,8 +27,9 @@ if (isset($_POST['submit'])) {
         mysqli_close($db);
 
         if ($result) {
-            header('Location: confirmation.php?Name=' . $name . '&Twitter=' . $twitter . '&E-mail=' . $email . '&Style=' . $style . '&Description=' . $description);
-            exit;
+            $success = true;
+            //header('Location: confirmation.php?Name=' . $name . '&Twitter=' . $twitter . '&E-mail=' . $email . '&Style=' . $style . '&Description=' . $description);
+            //exit;
         } else {
             $errors[] = 'Something went wrong, please try again';
         }
@@ -47,6 +49,42 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class = "item">
+        <?php if ($success){ ?>
+        <div class="centerTextAlign subtitle">
+            Thank you for your <br> request!
+        </div>
+        <br>
+        <table class="rules">
+            <tr>
+                <td>Name:</td>
+                <td><span class="errors"><?= $name; ?></span></td>
+            </tr>
+            <tr>
+                <td>Twitter:</td>
+                <td><span class="errors"><?= $twitter; ?></span></td>
+
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><span class="errors"><?= $email; ?></span></td>
+
+            </tr>
+            <tr>
+                <td>Style:</td>
+                <td><span class="errors"><?= $style; ?></span></td>
+
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><span class="errors"><?= str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$description); ?></span></td>
+            </tr>
+        </table>
+        <br>
+        <div class="centerTextAlign">
+            <a href="index.php">Home</a>
+        </div>
+        <?php } else { ?>
+
         <form action="" method="post">
             <div class="subtitle">
                 <div class = "centerTextAlign">
@@ -94,6 +132,7 @@ if (isset($_POST['submit'])) {
                 <input type="submit" value="Submit Request!" name="submit">
             </div>
         </form>
+        <?php } ?>
     </div>
 </body>
 </html>
