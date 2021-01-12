@@ -10,13 +10,7 @@ if(!isset($_SESSION['username'])){
     header("Location: login.php");
 }
 
-// redirect when id was not set/not found
-if(!isset($_GET['id'])) {
-    // redirects back to admin page
-    header('Location: admin.php');
-    exit;
-}
-
+//is the ID present? Was the form ever submitted to database?
 if(isset($_GET['id'])) {
     //Retrieve the GET parameter from the 'Super global'
     $id = $_GET['id'];
@@ -35,7 +29,7 @@ if(isset($_GET['id'])) {
         exit;
     }
 } else {
-    // Id was not present in the url OR the form was not submitted
+    // ID was not present in the url OR the form was not submitted
     // redirect to admin page
     header('Location: admin.php');
     exit;
