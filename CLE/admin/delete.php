@@ -3,6 +3,12 @@
 /** @var mysqli $db */
 require_once "../include/database.php";
 
+//checks if logged in
+if(!isset($_SESSION['username'])){
+    //redirects to login page
+    header("Location: login.php");
+}
+
 if (isset($_POST['submit'])) {
     // Get the commissions from the database result
     $query = "SELECT * FROM commissions WHERE id = " . mysqli_escape_string($db, $_POST['id']);

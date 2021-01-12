@@ -3,6 +3,12 @@
 /** @var mysqli $db */
 require_once "../include/database.php";
 
+//checks if logged in
+if(!isset($_SESSION['username'])){
+    //redirects to login page
+    header("Location: login.php");
+}
+
 // redirect when id was not set/not found
 if(!isset($_GET['id'])) {
     // redirects back to admin page
