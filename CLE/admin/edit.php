@@ -2,6 +2,7 @@
 /** @var mysqli $db */
 require_once "includes/database.php";
 
+session_start();
 //checks if logged in
 if(!isset($_SESSION['username'])){
     //redirects to login page
