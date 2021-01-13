@@ -9,9 +9,9 @@
 <body>
 <div class="item centerTextAlign">
     <p class="subtitle">Commission Styles</p>
-        <img class="images" src="../images/90sStyle.jpg"/>
         <img class="images" src="../images/cartoonStyle.jpg"/>
         <img class="images" src="../images/fullBodyStyle.jpg"/>
+        <img class="images" src="../images/90sStyle.jpg"/>
     <p>
     <a href="index.php">home</a>
     <a href="forum.php">commission here!</a>
