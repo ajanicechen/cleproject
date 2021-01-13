@@ -11,7 +11,12 @@ if ($email == "") {
     $errors['email'] = 'Email cannot be empty';
 }
 
+if ($style == "") {
+    $errors['style'] = 'Style cannot be empty';
+}
+
 if ($description == "") {
     $errors['description'] = 'Description cannot be empty';
 }
+
 ?>
