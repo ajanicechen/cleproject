@@ -69,9 +69,9 @@ mysqli_close($db);
                 <td>Style:</td>
                 <td><?= $commissions['style']?></td>
             </tr>
-            <tr>
+            <tr class="description">
                 <td>Description:</td>
-                <td class="description"><?= $commissions['description']?></td>
+                <td><?= $commissions['description']?></td>
             </tr>
         </table>
         <br>
