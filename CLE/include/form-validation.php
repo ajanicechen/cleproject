@@ -1,22 +1,22 @@
 <?php
 $errors = [];
 if ($name == "") {
-    $errors['name'] = 'Name cannot be empty';
+    $errors['name'] = '!! Name cannot be empty !!';
 }
 if ($twitter == "") {
-    $errors['twitter'] = 'Twitter cannot be empty';
+    $errors['twitter'] = '!! Twitter cannot be empty !!';
 }
 
 if ($email == "") {
-    $errors['email'] = 'Email cannot be empty';
+    $errors['email'] = '!! Email cannot be empty !!';
 }
 
 if ($style == "") {
-    $errors['style'] = 'Style cannot be empty';
+    $errors['style'] = '!! Style cannot be empty !!';
 }
 
 if ($description == "") {
-    $errors['description'] = 'Description cannot be empty';
+    $errors['description'] = '!! Description cannot be empty !!';
 }
 
 ?>
