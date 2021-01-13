@@ -98,14 +98,14 @@ if (isset($_POST['submit'])) {
                     Please fill in this form!
                     <br>
                     <br>
-                    <input class="center-block" type="text" name="Name" placeholder="Name" value="<?= isset($name) ? htmlentities($name) : '' ?>"required><br>
                     <span class="errors"><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
+                    <input class="center-block" type="text" name="Name" placeholder="Name" value="<?= isset($name) ? htmlentities($name) : '' ?>"required><br>
 
-                    <input class="center-block" type="text" name="Twitter" placeholder="Twitter" value="<?= isset($twitter) ? htmlentities($twitter) : '' ?>"required><br>
                     <span class="errors"><?= isset($errors['twitter']) ? $errors['twitter'] : '' ?></span>
+                    <input class="center-block" type="text" name="Twitter" placeholder="Twitter" value="<?= isset($twitter) ? htmlentities($twitter) : '' ?>"required><br>
 
-                    <input class="center-block" type="email" name="E-mail" placeholder="Email" value="<?= isset($email) ? htmlentities($email) : '' ?>"required>
                     <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                    <input class="center-block" type="email" name="E-mail" placeholder="Email" value="<?= isset($email) ? htmlentities($email) : '' ?>"required>
                 </div>
                 <br>
                 In what style would you like to commission?
@@ -124,7 +124,8 @@ if (isset($_POST['submit'])) {
                 <br>
                 <br>
                 <div class="centerTextAlign">
-                    <textarea name="Description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)"></textarea>
+                    <span class="errors"><?= isset($errors['description']) ? $errors['description'] : '' ?></span>
+                    <textarea name="Description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)" ></textarea>
                 </div>
             </div>
             <br>
