@@ -58,13 +58,13 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Delete commission <?= $commissions['id'] ?></title>
+    <title>Delete Commission <?= $id ?></title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="item centerTextAlign">
         <div class="subtitle">
-            Commission ID <?= $commissions['id']?>
+            Commission ID <?= $id?>
         </div>
         <form action="" method="post">
             <table class="rules">

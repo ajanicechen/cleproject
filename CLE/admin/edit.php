@@ -73,7 +73,7 @@ mysqli_close($db);
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Edit commission <?= $commissions['id'] ?></title>
+    <title>Edit Commission <?= $id ?></title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
