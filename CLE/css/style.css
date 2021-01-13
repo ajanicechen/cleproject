@@ -120,6 +120,8 @@ textarea {
 .description{
     padding-right: 80px;
     white-space: pre-wrap;
+    height: 50px;
+    vertical-align: top;
 }
 
 .adminTable tr th, .adminTable tr td{
@@ -138,6 +140,5 @@ textarea {
     height: 250px;
     width: 300px;
 }
-
 
 
