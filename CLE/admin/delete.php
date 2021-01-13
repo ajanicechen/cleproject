@@ -85,9 +85,9 @@ if (isset($_POST['submit'])) {
                     <td>Style:</td>
                     <td><?= $commissions['style']?></td>
                 </tr>
-                <tr  class="description">
+                <tr  class="trDescription">
                     <td>Description:</td>
-                    <td><?= $commissions['description']?></td>
+                    <td class="description"><?= $commissions['description']?></td>
                 </tr>
             </table>
 
