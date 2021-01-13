@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
     }
 }
 else if (isset($_GET['id'])) {
-    //Retrieve the GET parameter from the 'Super global'
+    //Retrieve the GET parameter
     $id = $_GET['id'];
 
     //Get the commission from the database result
