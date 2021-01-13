@@ -7,11 +7,11 @@ if (isset($_POST['submit'])) {
     require_once "../include/database.php";
 
     //Postback with the data showed to the user, first retrieve data from 'Super global'
-    $name = mysqli_escape_string($db, $_POST['Name']);
-    $twitter = mysqli_escape_string($db, $_POST['Twitter']);
-    $email = mysqli_escape_string($db, $_POST['E-mail']);
-    $style = mysqli_escape_string($db, $_POST['Style']);
-    $description = mysqli_escape_string($db, $_POST['Description']);
+    $name = mysqli_escape_string($db, $_POST['name']);
+    $twitter = mysqli_escape_string($db, $_POST['twitter']);
+    $email = mysqli_escape_string($db, $_POST['email']);
+    $style = mysqli_escape_string($db, $_POST['style']);
+    $description = mysqli_escape_string($db, $_POST['description']);
 
     require_once "../include/form-validation.php";
 
@@ -56,26 +56,26 @@ if (isset($_POST['submit'])) {
         <table class="rules">
             <tr>
                 <td>Name:</td>
-                <td><span class="errors"><?= $name; ?></span></td>
+                <td><span><?= $name; ?></span></td>
             </tr>
             <tr>
                 <td>Twitter:</td>
-                <td><span class="errors"><?= $twitter; ?></span></td>
+                <td><span><?= $twitter; ?></span></td>
 
             </tr>
             <tr>
                 <td>E-mail:</td>
-                <td><span class="errors"><?= $email; ?></span></td>
+                <td><span><?= $email; ?></span></td>
 
             </tr>
             <tr>
                 <td>Style:</td>
-                <td><span class="errors"><?= $style; ?></span></td>
+                <td><span><?= $style; ?></span></td>
 
             </tr>
             <tr>
                 <td>Description:</td>
-                <td><span class="errors"><?= str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$description); ?></span></td>
+                <td><span><?= str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$description); ?></span></td>
             </tr>
         </table>
         <br>
@@ -98,34 +98,34 @@ if (isset($_POST['submit'])) {
                     Please fill in this form!
                     <br>
                     <br>
-                    <span class="errors"><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
-                    <input class="center-block" type="text" name="Name" placeholder="Name" value="<?= isset($name) ? htmlentities($name) : '' ?>"required><br>
+                    <span><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
+                    <input class="center-block" type="text" name="name" placeholder="Name" value="<?= isset($name) ? htmlentities($name) : '' ?>"><br>
 
-                    <span class="errors"><?= isset($errors['twitter']) ? $errors['twitter'] : '' ?></span>
-                    <input class="center-block" type="text" name="Twitter" placeholder="Twitter" value="<?= isset($twitter) ? htmlentities($twitter) : '' ?>"required><br>
+                    <span><?= isset($errors['twitter']) ? $errors['twitter'] : '' ?></span>
+                    <input class="center-block" type="text" name="twitter" placeholder="Twitter" value="<?= isset($twitter) ? htmlentities($twitter) : '' ?>"><br>
 
-                    <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
-                    <input class="center-block" type="email" name="E-mail" placeholder="Email" value="<?= isset($email) ? htmlentities($email) : '' ?>"required>
+                    <span><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                    <input class="center-block" type="email" name="email" placeholder="E-mail" value="<?= isset($email) ? htmlentities($email) : '' ?>"><br>
                 </div>
                 <br>
                 In what style would you like to commission?
                 <br>
 
-                <input type="radio" name="Style" value="Cartoon" required>
+                <input type="radio" name="style" value="Cartoon" required>
                 Cartoon €15,-
                 <br>
 
-                <input type="radio" name="Style" value="Full Body" required>
+                <input type="radio" name="style" value="Full Body" required>
                 Full Body €25,-
                 <br>
 
-                <input type="radio" name="Style" value="90s Anime" required>
+                <input type="radio" name="style" value="90s Anime" required>
                 90's Anime €30,-
                 <br>
                 <br>
                 <div class="centerTextAlign">
-                    <span class="errors"><?= isset($errors['description']) ? $errors['description'] : '' ?></span>
-                    <textarea name="Description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)" ></textarea>
+                    <span class="errors"><?= isset($errors['description']) ? $errors['description'] : '' ?> <br></span>
+                    <textarea name="description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)" ></textarea>
                 </div>
             </div>
             <br>
