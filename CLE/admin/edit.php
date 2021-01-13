@@ -10,7 +10,7 @@ if(!isset($_SESSION['username'])){
 }
 //Check if Post isset, else do nothing
 if (isset($_POST['submit'])) {
-    //Postback with the data showed to the user, first retrieve data from 'Super global'
+    //Postback with the data showed to the user, first retrieve data
     $id = mysqli_escape_string($db, $_POST['id']);
     $name = mysqli_escape_string($db, $_POST['name']);
     $twitter = mysqli_escape_string($db, $_POST['twitter']);

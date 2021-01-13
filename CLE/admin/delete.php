@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     exit;
 
 } else if(isset($_GET['id'])) {
-    //Retrieve the GET parameter from the 'Super global'
+    //Retrieve the GET parameter
     $id = $_GET['id'];
 
     //Get data from the database result
