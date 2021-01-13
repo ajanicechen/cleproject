@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
         $commissions = mysqli_fetch_assoc($result);
 
         if ($result) {
-            header('Location: details.php');
+            header('Location: admin.php');
             exit;
         } else {
             $errors[] = 'Something went wrong in your database query: ' . mysqli_error($db);
@@ -52,7 +52,7 @@ else if (isset($_GET['id'])) {
     //Retrieve the GET parameter from the 'Super global'
     $id = $_GET['id'];
 
-    //Get the record from the database result
+    //Get the commission from the database result
     $query = "SELECT * FROM commissions WHERE id = " . mysqli_escape_string($db, $id);
     $result = mysqli_query($db, $query);
     if (mysqli_num_rows($result) == 1) {
@@ -66,7 +66,6 @@ else if (isset($_GET['id'])) {
     header('Location: admin.php');
     exit;
 }
-
 
 //Close connection
 mysqli_close($db);
@@ -82,7 +81,7 @@ mysqli_close($db);
         <form action="" method="post" enctype="multipart/form-data">
             <div class="subtitle">
                 <div class = "centerTextAlign">
-                    Commission ID <?= $commissions['id'] ?>
+                    Commission ID <?= $id ?>
                 </div>
             </div>
             <br>
@@ -91,20 +90,26 @@ mysqli_close($db);
                     Edit
                     <br>
                     <br>
-                    <input class="center-block" type="text" name="Name" placeholder="Name" value="<?= htmlentities($commissions['name']) ?>"><br>
+                    <span><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
+                    <input class="center-block" type="text" name="name" placeholder="Name" value="<?= htmlentities($commissions['name']) ?>"><br>
 
-                    <input class="center-block" type="text" name="Twitter" placeholder="Twitter" value="<?= htmlentities($commissions['twitter']) ?>"><br>
+                    <span><?= isset($errors['twitter']) ? $errors['twitter'] : '' ?></span>
+                    <input class="center-block" type="text" name="twitter" placeholder="Twitter" value="<?= htmlentities($commissions['twitter']) ?>"><br>
 
-                    <input class="center-block" type="email" name="E-mail" placeholder="Email" value="<?= htmlentities($commissions['email']) ?>">
+                    <span><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                    <input class="center-block" type="email" name="email" placeholder="Email" value="<?= htmlentities($commissions['email']) ?>"><br>
 
-                    <input class="center-block" type="text" name="Style" placeholder="Style" value="<?= htmlentities($commissions['style']) ?>">
+                    <span><?= isset($errors['style']) ? $errors['style'] : '' ?></span>
+                    <input class="center-block" type="text" name="style" placeholder="Style" value="<?= htmlentities($commissions['style']) ?>"><br>
 
-                    <textarea class="center-block" name="Description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)"><?= htmlentities($commissions['description']) ?></textarea>
+                    <span><?= isset($errors['description']) ? $errors['description'] : '' ?></span><br>
+                    <textarea class="center-block" name="description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)"><?= htmlentities($commissions['description']) ?></textarea>
                 </div>
             </div>
             <br>
             <br>
             <div class="centerTextAlign">
+                <a href="admin.php">Back</a>
                 <input type="hidden" name="id" value="<?= $id ?>"/>
                 <input type="submit" value="Save!" name="submit">
             </div>
