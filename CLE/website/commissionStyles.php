@@ -14,7 +14,7 @@
         <img class="images" src="../images/90sStyle.jpg"/>
     <p>
     <a href="index.php">home</a>
-    <a href="forum.php">commission here!</a>
+    <a href="form.php">commission here!</a>
     </p>
 </div>
 </body>

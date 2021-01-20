@@ -46,8 +46,8 @@
         </div>
         <br>
         <div class="links">
-            <a href="commissionStyles.php">Commission Styles</a>
-            <a href="forum.php">Commission Here!</a>
+            <a href="commissionStyles.php">Styles</a>
+            <a href="form.php">Commission Here!</a>
         </div>
     </div>
 </body>
