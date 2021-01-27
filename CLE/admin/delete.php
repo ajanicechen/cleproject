@@ -1,12 +1,12 @@
 <?php
-//Requires data
+//includes database file and connects to db
 /** @var mysqli $db */
 require_once "../include/database.php";
 
 session_start();
-//checks if logged in
+//checks if admin is logged in
 if(!isset($_SESSION['username'])){
-    //redirects to login page
+    //redirects to login page if not logged in
     header("Location: login.php");
 }
 
@@ -71,23 +71,23 @@ if (isset($_POST['submit'])) {
                 <p class="pinkText">Are you sure you want to delete this commission?</p>
                 <tr>
                     <td>Name:</td>
-                    <td><?= $commissions['name']?></td>
+                    <td><?= htmlentities($commissions['name'])?></td>
                 </tr>
                 <tr>
                     <td>Twitter:</td>
-                    <td><?= $commissions['twitter']?></td>
+                    <td><?= htmlentities($commissions['twitter'])?></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><?= $commissions['email']?></td>
+                    <td><?= htmlentities($commissions['email'])?></td>
                 </tr>
                 <tr>
                     <td>Style:</td>
-                    <td><?= $commissions['style']?></td>
+                    <td><?= htmlentities($commissions['style'])?></td>
                 </tr>
                 <tr  class="trDescription">
                     <td>Description:</td>
-                    <td class="description"><?= $commissions['description']?></td>
+                    <td class="description"><?= htmlentities($commissions['description'])?></td>
                 </tr>
             </table>
 

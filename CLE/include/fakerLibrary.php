@@ -15,7 +15,7 @@ for ($i=0; $i<3; $i++){
                 '$faker->userName',
                 '$faker->safeEmail',
                 '$randomElement',
-                '$faker->sentence')";
+                '$faker->sentence()')";
     $result = mysqli_query($db, $query);
     echo $query . "<br>";
 }

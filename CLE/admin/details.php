@@ -1,10 +1,10 @@
 <?php
-//requires database, include database
+//include and connects to database
 /** @var mysqli $db */
 require_once "../include/database.php";
 
 session_start();
-//checks if logged in
+//checks if admin is logged in
 if(!isset($_SESSION['username'])){
     //redirects to login page
     header("Location: login.php");
@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
 
 //is the ID present? Was the form ever submitted to database?
 if(isset($_GET['id'])) {
-    //Retrieve the GET parameter from the 'Super global'
+    //Retrieve the commission id
     $id = $_GET['id'];
 
     //Get data from the database result
@@ -55,23 +55,23 @@ mysqli_close($db);
             <p class="pinkText">Details</p>
             <tr>
                 <td>Name:</td>
-                <td><?= $commissions['name']?></td>
+                <td><?= htmlentities($commissions['name'])?></td>
             </tr>
             <tr>
                 <td>Twitter:</td>
-                <td><?= $commissions['twitter']?></td>
+                <td><?= htmlentities($commissions['twitter'])?></td>
             </tr>
             <tr>
                 <td>Email:</td>
-                <td><?= $commissions['email']?></td>
+                <td><?= htmlentities($commissions['email'])?></td>
             </tr>
             <tr>
                 <td>Style:</td>
-                <td><?= $commissions['style']?></td>
+                <td><?= htmlentities($commissions['style'])?></td>
             </tr>
             <tr class="trDescription">
                 <td>Description:</td>
-                <td class="description"><?= $commissions['description']?></td>
+                <td class="description"><?= htmlentities($commissions['description'])?></td>
             </tr>
         </table>
         <br>

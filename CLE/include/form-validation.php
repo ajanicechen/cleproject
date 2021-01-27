@@ -12,7 +12,7 @@ if ($email == "") {
 }
 
 if ($style == "") {
-    $errors['style'] = '!! Style cannot be empty !!';
+    $errors['style'] = '!! Style cannot be empty !!' . '<br>';
 }
 
 if ($description == "") {

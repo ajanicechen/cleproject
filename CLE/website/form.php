@@ -1,35 +1,41 @@
 <?php
 $success = false;
-//Check if Post isset, else do nothing
+//Checks if submit button is clicked on
 if (isset($_POST['submit'])) {
-    //Require database
     /** @var mysqli $db */
+    //includes connection to database
     require_once "../include/database.php";
 
-    //Postback with the data showed to the user, first retrieve data from 'Super global'
+    //if style isset then protect from sql injections
+    if (isset($_POST['style'])){
+        $style = mysqli_escape_string($db, $_POST['style']);
+    }
+    //if not isset, show error
+    else {
+        $errors['style'] = '!! Style cannot be empty !!' . '<br>';
+        $style='';
+    }
+
+    //receives all input from form and protects input from sql injections
     $name = mysqli_escape_string($db, $_POST['name']);
     $twitter = mysqli_escape_string($db, $_POST['twitter']);
     $email = mysqli_escape_string($db, $_POST['email']);
-    $style = mysqli_escape_string($db, $_POST['style']);
     $description = mysqli_escape_string($db, $_POST['description']);
 
     require_once "../include/form-validation.php";
 
     if (empty($errors)) {
-        //echo 'no errors';
-        //Saves commission into the database
+        //query to save commission into the database
         $query = "INSERT INTO commissions (name, twitter, email, style, description)
                   VALUES ('$name', '$twitter', '$email', '$style', '$description')";
         $result = mysqli_query($db, $query)
         or die('Error: '.$query);
 
-        //Close connection
+        //Close connection to database
         mysqli_close($db);
 
         if ($result) {
             $success = true;
-            //header('Location: confirmation.php?Name=' . $name . '&Twitter=' . $twitter . '&E-mail=' . $email . '&Style=' . $style . '&Description=' . $description);
-            //exit;
         } else {
             $errors[] = 'Something went wrong, please try again';
         }
@@ -56,26 +62,26 @@ if (isset($_POST['submit'])) {
         <table class="rules">
             <tr>
                 <td>Name:</td>
-                <td><span><?= $name; ?></span></td>
+                <td><span><?= htmlentities($name); ?></span></td>
             </tr>
             <tr>
                 <td>Twitter:</td>
-                <td><span><?= $twitter; ?></span></td>
+                <td><span><?= htmlentities($twitter); ?></span></td>
 
             </tr>
             <tr>
                 <td>E-mail:</td>
-                <td><span><?= $email; ?></span></td>
+                <td><span><?= htmlentities($email); ?></span></td>
 
             </tr>
             <tr>
                 <td>Style:</td>
-                <td><span><?= $style; ?></span></td>
+                <td><span><?= htmlentities($style); ?></span></td>
 
             </tr>
             <tr>
                 <td>Description:</td>
-                <td><span><?= str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",$description); ?></span></td>
+                <td><span><?= str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"<br/>",htmlentities($description)); ?></span></td>
             </tr>
         </table>
         <br>
@@ -98,34 +104,34 @@ if (isset($_POST['submit'])) {
                     Please fill in this form!
                     <br>
                     <br>
-                    <span><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
+                    <span class="pinkText"><?= isset($errors['name']) ? $errors['name'] : '' ?></span>
                     <input class="center-block" type="text" name="name" placeholder="Name" value="<?= isset($name) ? htmlentities($name) : '' ?>"><br>
 
-                    <span><?= isset($errors['twitter']) ? $errors['twitter'] : '' ?></span>
+                    <span class="pinkText"><?= isset($errors['twitter']) ? $errors['twitter'] : '' ?></span>
                     <input class="center-block" type="text" name="twitter" placeholder="Twitter" value="<?= isset($twitter) ? htmlentities($twitter) : '' ?>"><br>
 
-                    <span><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                    <span class="pinkText"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
                     <input class="center-block" type="email" name="email" placeholder="E-mail" value="<?= isset($email) ? htmlentities($email) : '' ?>"><br>
                 </div>
                 <br>
+                <span class="pinkText"><?= isset($errors['style']) ? $errors['style'] : '' ?> <br> </span>
                 In what style would you like to commission?
                 <br>
-
-                <input type="radio" name="style" value="Cartoon" required>
+                <input type="radio" name="style" value="Cartoon">
                 Cartoon €15,-
                 <br>
 
-                <input type="radio" name="style" value="Full Body" required>
+                <input type="radio" name="style" value="Full Body">
                 Full Body €25,-
                 <br>
 
-                <input type="radio" name="style" value="90s Anime" required>
+                <input type="radio" name="style" value="90s Anime">
                 90's Anime €30,-
                 <br>
                 <br>
                 <div class="centerTextAlign">
-                    <span class="errors"><?= isset($errors['description']) ? $errors['description'] : '' ?> <br></span>
-                    <textarea name="description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)" ></textarea>
+                    <span class="pinkText"><?= isset($errors['description']) ? $errors['description'] : '' ?> <br></span>
+                    <textarea name="description" placeholder="Please enter commission details (´｡• ᵕ •｡`)/)" ><?= isset($description) ? htmlentities($description) : '' ?></textarea>
                 </div>
             </div>
             <br>

@@ -3,7 +3,7 @@
 require_once '../include/database.php';
 session_start();
 if(isset($_SESSION['username'])){
-    //header("Location: admin.php");
+    header("Location: admin.php");
 }
 ?>
 
@@ -34,34 +34,37 @@ if(isset($_SESSION['username'])){
                     //runs query on the database
                     $result = mysqli_query($db, $query);
 
-                    if (mysqli_num_rows($result)== false) {
-                        //if there is no such username
-                        echo 'Username or Password invalid';
-                    }
-                    else{
-                        //gets hashed pw
-                        $hash = mysqli_fetch_assoc($result);
-                        $hash = $hash['password'];
+                    //if there is 1 result in the database
+                    if (mysqli_num_rows($result) == 1) {
+                        //fetches information from database
+                        $fetch = mysqli_fetch_assoc($result);
+                        //only need password
+                        $hash = $fetch['password'];
 
-                        //checks password
+                        //checks if input pw matches with database pw/hash
                         if (password_verify($password, $hash)){
+                            //sets username in a session superglobal
                             $_SESSION['username'] = $username;
                             header("Location: admin.php");
                         }
                         else{
-                            //echo 'Username or Password invalid';
+                            //if pw doesnt match with database, show error
                             ?>
                             <p class="pinkText centerTextAlign">Username or Password invalid</p>
-            <?php
+                            <?php
                         }
+                    }
+                    else{
+                        //if there is no such username in database
+                        echo 'Username or Password invalid';
                     }
                     mysqli_close($db);
                 }
                 else{
-                    //echo 'Please enter Username and Password';
+                    //if username or password is empty
                     ?>
                     <p class="pinkText centerTextAlign"> Please enter Username / Password</p>
-                <?php
+                    <?php
                 }
             }
             ?>

@@ -40,13 +40,13 @@
                 Terms of services
                 <br>
                 I will message you when I start working on your commission.
-                There's 2 slots and Because of school I may take a maximum of 2 weeks on each commission.
+                Because of school I may take a maximum of 2 weeks on each commission.
                 Please keep this in mind before commissioning.
             </div>
         </div>
         <br>
         <div class="links">
-            <a href="commissionStyles.php">Styles</a>
+            <a href="commissionStyles.php">Commission Styles</a>
             <a href="form.php">Commission Here!</a>
         </div>
     </div>

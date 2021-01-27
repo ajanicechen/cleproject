@@ -7,7 +7,7 @@ if(!isset($_SESSION['username'])){
     header("Location: login.php");
 }
 
-//connects to database
+//includes and connects to database
 require_once '../include/database.php';
 
 //selects from commission table
@@ -45,12 +45,12 @@ mysqli_close($db);
                 //reads array and puts in table
                 foreach($commissions as $value){ ?>
                     <tr>
-                        <td><?= $value["id"]?></td>
-                        <td><?= $value["name"]?></td>
-                        <td><?= $value["twitter"]?></td>
-                        <td><?= $value["email"]?></td>
-                        <td><?= $value["style"]?></td>
-                        <td><?= $value["description"]?></td>
+                        <td><?= htmlentities($value["id"])?></td>
+                        <td><?= htmlentities($value["name"])?></td>
+                        <td><?= htmlentities($value["twitter"])?></td>
+                        <td><?= htmlentities($value["email"])?></td>
+                        <td><?= htmlentities($value["style"])?></td>
+                        <td><?= htmlentities($value["description"])?></td>
                         <td><a href="details.php?id=<?= $value['id'] ?>">Details</a></td>
                         <td><a href="edit.php?id=<?= $value['id'] ?>">Edit</a></td>
                         <td><a href="delete.php?id=<?= $value['id'] ?>">Delete</a></td>

@@ -22,7 +22,6 @@ if (isset($_POST['submit'])) {
     require_once "../include/form-validation.php";
 
     //Save variables to array so the form won't break
-    //This array is build the same way as the db result
     $commissions = [
         'name' => $name,
         'twitter' => $twitter,
@@ -48,8 +47,9 @@ if (isset($_POST['submit'])) {
 
     }
 }
+
 else if (isset($_GET['id'])) {
-    //Retrieve the GET parameter
+    //Retrieve the id
     $id = $_GET['id'];
 
     //Get the commission from the database result
@@ -58,7 +58,7 @@ else if (isset($_GET['id'])) {
     if (mysqli_num_rows($result) == 1) {
         $commissions = mysqli_fetch_assoc($result);
     } else {
-        // redirect when db returns no result
+        // redirect when database returns no result
         header('Location: admin.php');
         exit;
     }
