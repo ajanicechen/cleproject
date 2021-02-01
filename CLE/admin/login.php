@@ -24,13 +24,16 @@ if(isset($_SESSION['username'])){
             </div>
             <br>
             <?php
+            //if submit pressed
             if(isset($_POST['submit'])) {
+                //if either UN or PW not empty
                 if(!empty($_POST['username']) || !empty($_POST['password'])) {
+                    //protect from sql injections and save as variable
                     $username = mysqli_real_escape_string($db, $_POST['username']);
                     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-                    //database sql query
-                    $query = "SELECT password FROM adminlogin WHERE username = '". $username . "'";
+                    //query to get UN and PW from database
+                    $query = "SELECT password FROM adminlogin WHERE username = '$username'";
                     //runs query on the database
                     $result = mysqli_query($db, $query);
 
@@ -38,12 +41,12 @@ if(isset($_SESSION['username'])){
                     if (mysqli_num_rows($result) == 1) {
                         //fetches information from database
                         $fetch = mysqli_fetch_assoc($result);
-                        //only need password
+                        //only need password, which is a hash
                         $hash = $fetch['password'];
 
-                        //checks if input pw matches with database pw/hash
+                        //if pw matches with pw in db
                         if (password_verify($password, $hash)){
-                            //sets username in a session superglobal
+                            //set username in a session superglobal
                             $_SESSION['username'] = $username;
                             header("Location: admin.php");
                         }
@@ -63,7 +66,7 @@ if(isset($_SESSION['username'])){
                 else{
                     //if username or password is empty
                     ?>
-                    <p class="pinkText centerTextAlign"> Please enter Username / Password</p>
+                    <p class="pinkText centerTextAlign"> Please enter Username or Password</p>
                     <?php
                 }
             }

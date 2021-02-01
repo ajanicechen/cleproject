@@ -1,6 +1,6 @@
 <?php
 $success = false;
-//Checks if submit button is clicked on
+//if submit button is clicked on
 if (isset($_POST['submit'])) {
     /** @var mysqli $db */
     //includes connection to database
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         $style='';
     }
 
-    //receives all input from form and protects input from sql injections
+    //receives all other input from form and protects input from sql injections
     $name = mysqli_escape_string($db, $_POST['name']);
     $twitter = mysqli_escape_string($db, $_POST['twitter']);
     $email = mysqli_escape_string($db, $_POST['email']);
@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
 
     require_once "../include/form-validation.php";
 
+    //if no errors
     if (empty($errors)) {
         //query to save commission into the database
         $query = "INSERT INTO commissions (name, twitter, email, style, description)

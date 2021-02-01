@@ -5,50 +5,53 @@ require_once "../include/database.php";
 
 session_start();
 //checks if admin is logged in
+//if admin is not in session
 if(!isset($_SESSION['username'])){
-    //redirects to login page if not logged in
+    //redirects to login page
     header("Location: login.php");
 }
 
+//if submit is clicked
 if (isset($_POST['submit'])) {
-    // Get the commissions from the database result
-    $query = "SELECT * FROM commissions WHERE id = " . mysqli_escape_string($db, $_POST['id']);
-    $result = mysqli_query($db, $query) or die ('Error: ' . $query );
-
-    $album = mysqli_fetch_assoc($result);
-
     // Delete data from the database
     $query = "DELETE FROM commissions WHERE id = " . mysqli_escape_string($db, $_POST['id']);
 
+    //runs query on database, or stop the query if error and show error
     mysqli_query($db, $query) or die ('Error: '.mysqli_error($db));
 
-    //Close connection
+    //Close connection to db
     mysqli_close($db);
 
     //Redirect to admin page
     header("Location: admin.php");
     exit;
 
-} else if(isset($_GET['id'])) {
-    //Retrieve the GET parameter
+}
+//if submit is not pressed/the page is loaded for first time
+//if id is present in url
+else if(isset($_GET['id'])) {
+    //Retrieve the id from url
     $id = $_GET['id'];
 
-    //Get data from the database result
+    //query to get data from the database
     $query = "SELECT * FROM commissions WHERE id = " . mysqli_escape_string($db, $id);
+    //runs query on database and put it in $result
     $result = mysqli_query($db, $query) or die ('Error: ' . $query );
 
-    if(mysqli_num_rows($result) == 1)
-    {
+    //if there is exactly one result
+    if(mysqli_num_rows($result) == 1) {
+        //fetches data and put data in $commissions to read
         $commissions = mysqli_fetch_assoc($result);
     }
+    //if not exactly one result
     else {
         // redirect when database returns no result
         header('Location: admin.php');
         exit;
     }
-} else {
-    // Id was not present in the url OR the form was not submitted
-
+}
+//if id is not present in url
+else {
     // redirect to admin page
     header('Location: admin.php');
     exit;

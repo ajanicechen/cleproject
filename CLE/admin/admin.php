@@ -10,12 +10,14 @@ if(!isset($_SESSION['username'])){
 //includes and connects to database
 require_once '../include/database.php';
 
-//selects from commission table
+//selects everything from commission table
 $query = "SELECT * FROM commissions";
 $result = mysqli_query($db, $query);
 
-//puts results in array
+//make an array called commissions
 $commissions = [];
+
+//fetch result and put it in array
 while ($row = mysqli_fetch_assoc($result)){
     $commissions[] = $row;
 }

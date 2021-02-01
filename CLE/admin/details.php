@@ -5,31 +5,36 @@ require_once "../include/database.php";
 
 session_start();
 //checks if admin is logged in
+//if admin is not in session
 if(!isset($_SESSION['username'])){
-    //redirects to login page
+    //redirect to login page
     header("Location: login.php");
 }
 
-//is the ID present? Was the form ever submitted to database?
+//if id is present in url
 if(isset($_GET['id'])) {
-    //Retrieve the commission id
+    //Retrieve the id
     $id = $_GET['id'];
 
-    //Get data from the database result
+    //query to get data from the database
     $query = "SELECT * FROM commissions WHERE id = " . mysqli_escape_string($db, $id);
+    //runs query on database and puts result in $result
     $result = mysqli_query($db, $query) or die ('Error: ' . $query );
 
-    if(mysqli_num_rows($result) == 1)
-    {
+    //if there is exactly one result
+    if(mysqli_num_rows($result) == 1) {
+        //fetches data and put in $commissions to read
         $commissions = mysqli_fetch_assoc($result);
     }
+    //if not exactly one result
     else {
         // redirect when database returns no result
         header('Location: admin.php');
         exit;
     }
-} else {
-    // ID was not present in the url OR the form was not submitted
+}
+//if id is not present in url or form was not submitted
+else {
     // redirect to admin page
     header('Location: admin.php');
     exit;

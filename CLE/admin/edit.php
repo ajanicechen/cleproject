@@ -3,14 +3,15 @@
 require_once "../include/database.php";
 
 session_start();
-//checks if logged in
+//checks if admin is logged in
+//if admin is not in session
 if(!isset($_SESSION['username'])){
     //redirects to login page
     header("Location: login.php");
 }
-//Check if Post isset, else do nothing
+//if submit is clicked
 if (isset($_POST['submit'])) {
-    //Postback with the data showed to the user, first retrieve data
+    //receive data from edit and protect from sql injections
     $id = mysqli_escape_string($db, $_POST['id']);
     $name = mysqli_escape_string($db, $_POST['name']);
     $twitter = mysqli_escape_string($db, $_POST['twitter']);
@@ -21,7 +22,7 @@ if (isset($_POST['submit'])) {
     //Require the form validation handling
     require_once "../include/form-validation.php";
 
-    //Save variables to array so the form won't break
+    //Save variables to array
     $commissions = [
         'name' => $name,
         'twitter' => $twitter,
@@ -30,15 +31,20 @@ if (isset($_POST['submit'])) {
         'description' => $description,
     ];
 
+    //if no errors
     if (empty($errors)) {
-        //Update the commission in the database
+        //query to update the commission information in the database
         $query = "UPDATE commissions
                   SET name = '$name', twitter = '$twitter', email = '$email', style = '$style', description = '$description'
                   WHERE id = '$id'";
+        //runs the query on database and put result in $result
         $result = mysqli_query($db, $query);
+        //fetches data and put it in $commissions to read data
         $commissions = mysqli_fetch_assoc($result);
 
+        //if query is run
         if ($result) {
+            //redirect to admin page
             header('Location: admin.php');
             exit;
         } else {
@@ -48,26 +54,38 @@ if (isset($_POST['submit'])) {
     }
 }
 
+//if submit is not pressed/page is loaded for the first time
+// if there is an id in url
 else if (isset($_GET['id'])) {
-    //Retrieve the id
+    //Retrieve the id from url
     $id = $_GET['id'];
 
-    //Get the commission from the database result
+    //query to get commission from the database
     $query = "SELECT * FROM commissions WHERE id = " . mysqli_escape_string($db, $id);
+    //runs query in database and puts result in $result
     $result = mysqli_query($db, $query);
+
+    //if there is exactly 1 result
     if (mysqli_num_rows($result) == 1) {
+        //fetches data and put in $commissions to read data
         $commissions = mysqli_fetch_assoc($result);
-    } else {
-        // redirect when database returns no result
+
+    }
+    //if there is not exactly 1 result
+    else {
+        // redirect to admin
         header('Location: admin.php');
         exit;
     }
-} else {
+}
+//if there is no id in url
+else {
+    //redirect to admin
     header('Location: admin.php');
     exit;
 }
 
-//Close connection
+//Close connection to db
 mysqli_close($db);
 ?>
 <html>
